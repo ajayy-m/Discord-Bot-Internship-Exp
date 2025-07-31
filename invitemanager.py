@@ -1,4 +1,4 @@
-import discord
+import discord #Necessary imports
 from discord.ext import commands
 
 intents = discord.Intents.default()
@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 # Dictionary to track invites per guild
 invite_cache = {}
 
-@bot.event
+@bot.event             #
 async def on_ready():
     print(f"Bot is ready! Logged in as {bot.user}")
     for guild in bot.guilds:
@@ -18,7 +18,7 @@ async def on_ready():
         invite_cache[guild.id] = {invite.code: invite.uses for invite in invites}
 
 @bot.event
-async def on_member_join(member):
+async def on_member_join(member):                
     guild = member.guild
     new_invites = await guild.invites()
     old_invites = invite_cache[guild.id]
@@ -33,8 +33,8 @@ async def on_member_join(member):
                 break
     # Update cache
     invite_cache[guild.id] = {invite.code: invite.uses for invite in new_invites}
-
-@bot.command()
+  
+@bot.command()        # Command - Check invites
 async def invites(ctx, member: discord.Member = None):
     member = member or ctx.author
     total = 0

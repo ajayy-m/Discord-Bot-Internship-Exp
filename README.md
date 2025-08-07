@@ -1,4 +1,6 @@
 # Discord Bots - Different Categories
 
 
-Built on Discord dev tools - Soon to be updated
+# Fun bot - 8ball, etc
+# Invite manager 
+# RPG bot - a mimic of RPG elements using simple functions
